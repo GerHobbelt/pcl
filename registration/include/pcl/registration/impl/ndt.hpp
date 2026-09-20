@@ -147,7 +147,7 @@ NormalDistributionsTransform<PointSource, PointTarget, Scalar>::computeTransform
       return;
     }
 #endif
-    // Negative for maximization as opposed to minimization
+    // Newton step obtained by solving H * delta = -gradient
     Eigen::Matrix<double, 6, 1> delta = sv.solve(-score_gradient);
 
     // Calculate step length with guaranteed sufficient decrease [More, Thuente 1994]
